@@ -23,7 +23,12 @@ const Home: NextPage = () => {
 
       connection.getAccountInfo(key).then(info => {
         try{
-          setData(info!.data.toString());
+          //CHANGES WERE MADE HERE
+          var beforeSanitized = info!.data.toString()
+          let index = beforeSanitized.indexOf("PHN");
+          let valSanitised = beforeSanitized.substring(index);
+
+          setData(valSanitised);
         } catch (error){
           setData('No data found on this address!')
         }
@@ -58,8 +63,7 @@ const Home: NextPage = () => {
         <p>
             Instructions: <br></br>
             - Paste address into text box and press the button <br></br>
-            - Copy the long string of text after the weird symbols starting with PHN.. <br></br>
-            - Important: Make sure the weird symbols are not included! <br></br>
+            - Copy the long string of text <br></br>
             - Paste into base64 to svg converter such as:  <br></br>
             - <a href="https://base64.guru/converter/decode/image/svg">https://base64.guru/converter/decode/image/svg</a> <br></br>
         </p>
