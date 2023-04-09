@@ -15,7 +15,7 @@ const Home: NextPage = () => {
     try {
       setAddress(address)
       const key = new Web3.PublicKey(address)
-      const connection = new Web3.Connection('https://rpc.helius.xyz/?api-key=f9eb1eaa-88b1-45e2-87ad-e1e29cd09bdf')
+      const connection = new Web3.Connection('https://rpc.helius.xyz/?api-key=a6a54a77-43dc-4682-9140-26a60218a474')
       
       connection.getBalance(key).then(balance => {
         setBalance(balance / Web3.LAMPORTS_PER_SOL)
@@ -25,7 +25,8 @@ const Home: NextPage = () => {
         try{
           //CHANGES WERE MADE HERE
           var beforeSanitized = info!.data.toString()
-          let index = beforeSanitized.indexOf("PHN");
+          let index = beforeSanitized.indexOf("data");
+          //let index = beforeSanitized.indexOf("");
           let valSanitised = beforeSanitized.substring(index);
 
           setData(valSanitised);
@@ -55,7 +56,7 @@ const Home: NextPage = () => {
         <div className={styles.App3}>
         <p>
           You need the image container address! <br></br>
-          try: Ghtm2poe3AC1PJwLWQ4EEFtU9aka6n7z5TjbeD9JyUmS<br></br>
+          try: E663ZsGzckou1Lw8nmyTZkgyg1E9j6DTGD5ja8nYib2N<br></br>
         </p>
         </div>
         <AddressForm handler={addressSubmittedHandler} />
@@ -64,8 +65,7 @@ const Home: NextPage = () => {
             Instructions: <br></br>
             - Paste address into text box and press the button <br></br>
             - Copy the long string of text <br></br>
-            - Paste into base64 to svg converter such as:  <br></br>
-            - <a href="https://base64.guru/converter/decode/image/svg">https://base64.guru/converter/decode/image/svg</a> <br></br>
+            - Paste into a new browser address <br></br>
         </p>
         </div>
         <div className={styles.App2}>
